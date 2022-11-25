@@ -40,9 +40,9 @@ cluster-cancel: "qdel"
 
 default-resources:
   - mem_mb=1024
-  - runtime='12:00:00'
-  #- tmpdir='$SCRATCH'
-  #- disk_mb=1024 # Most queuing systems don't care
-  #- partition=normal # Most queuing systems don't care
+  - runtime='6:00:00'
+  #- tmpdir='$SCRATCH' # Not always necessary.
+  #- disk_mb=1024 # Not always necessary.
+  #- partition=normal # Not always necessary.
   
   
