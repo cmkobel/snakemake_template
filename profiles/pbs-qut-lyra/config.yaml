@@ -1,16 +1,15 @@
+# ---- Front end stuff ----
 local-cores: 16 # front end / head node cores
 cores: 2048 # cluster cores
 jobs: 1000 # max parallel jobs
 keep-going: true 
 #rerun-incomplete: true
 latency-wait: 120
-keep-incomplete: true # Should be true for debugging rules.
-keep-incomplete: false # Should be true for debugging rules.
+keep-incomplete: false # Set this to true when you develop/debug workflows.
 
-
-# This one could be cool to have working 
-show-failed-logs: true
+show-failed-logs: true # This one requires additional configuration.
 jobname: "ac2_{name}_{jobid}.sh" # Super helpful because it shows the job in qstat
+
 
 # ---- Conda/Mamba ----
 use-conda: true
@@ -18,12 +17,7 @@ conda-frontend: 'mamba'
 #conda-prefix: "conda_base/" # Much better to use the $SNAKEMAKE_CONDA_PREFIX instead, as all workflows can then use the same envs.
 
 
-
 # ---- QUT CMR Lyra specifics ----
-
-cluster-cancel: "qdel"
-
-
 
 cluster:
   mkdir -p logs/old/ && 
@@ -35,17 +29,14 @@ cluster:
     -e logs/{jobid}-{rule}.err.log 
     -o logs/{jobid}-{rule}.out.log
     -l select=1:ncpus={threads}:mem={resources.mem_mb}mb,walltime={resources.runtime} 
-
-
-    
-
-
+ 
+cluster-cancel: "qdel"
 
 default-resources:
   - mem_mb=1024
-  #- disk_mb=1024 # genomedk doesn't care 
   - runtime='12:00:00'
   - tmpdir='$SCRATCH'
-  #- partition=normal # genomedk doesn't care too much about partitions (https://genome.au.dk/docs/interacting-with-the-queue/#why-is-the-partition-i-chose-being-ignored)
+  #- disk_mb=1024 # Most queuing systems don't care
+  #- partition=normal # Most queuing systems don't care
   
   
