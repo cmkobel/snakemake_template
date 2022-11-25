@@ -1,6 +1,12 @@
+# This profile can be used with a snakemake workflow. Just put this config.yaml-file in a directory called whatever/ and call your snakemake worflow with 
+# snakemake --profile whatever/
+
 # ---- Front end stuff ----
 local-cores: 16 # front end / head node cores
 cores: 2048 # cluster cores
+
+
+# ---- Back end stuff ----
 jobs: 1000 # max parallel jobs
 keep-going: true 
 #rerun-incomplete: true
