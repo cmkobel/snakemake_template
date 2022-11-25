@@ -13,7 +13,7 @@ keep-going: true
 latency-wait: 120
 keep-incomplete: false # Set this to true when you develop/debug workflows.
 
-show-failed-logs: true # This one requires additional configuration.
+show-failed-logs: true # This one requires additional configuration beyond the scope of this configuration file.
 jobname: "ac2_{name}_{jobid}.sh" # Super helpful because it shows the job in qstat
 
 
