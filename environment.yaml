@@ -1,0 +1,13 @@
+name: snakemake
+channels:
+  - conda-forge
+  - bioconda
+  - anaconda
+dependencies:
+  - mamba
+  - snakemake
+  - git # Not strictly necessary, but nice to have.
+
+
+# conda env create -f environment.yaml
+
