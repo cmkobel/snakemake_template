@@ -3,11 +3,11 @@
 
 
 rule all:
-	input: "/path/to/output.txt"
+	input: "path/to/output.txt"
 
 
 rule generator:
-	output: "/path/to/output.txt"
+	output: "path/to/output.txt"
 	conda: "conda_definitions/mashtree.yaml"
 	shell: """
 	
