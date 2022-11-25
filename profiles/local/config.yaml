@@ -1,0 +1,10 @@
+
+cores: all
+
+keep-going: true 
+rerun-incomplete: true
+show-failed-logs: true
+
+use-conda: true
+conda-frontend: mamba
+
