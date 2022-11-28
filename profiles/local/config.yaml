@@ -13,5 +13,5 @@ conda-frontend: mamba
 
 # In the event that TMPDIR is not set on the local node, use this:
 default-resources:
-  - tmpdir='/mnt/hpccs01/scratch/microbiome/kobel'
-
+ #- tmpdir='/mnt/hpccs01/scratch/microbiome/kobel'
+ #- tmpdir=/cluster/work/users/cmkobel
