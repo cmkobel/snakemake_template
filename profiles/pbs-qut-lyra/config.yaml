@@ -26,7 +26,7 @@ conda-frontend: 'mamba' # Make sure that you install mamba in the environment wh
 # ---- QUT CMR Lyra specifics ----
 
 cluster:
-  mkdir -p logs/old/ && 
+  mkdir -p logs/ && 
   qsub 
     -V 
     -A kobel 
