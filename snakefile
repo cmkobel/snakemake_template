@@ -1,4 +1,4 @@
-# snakemake --profiles/local
+# snakemake --profile profiles/local
 
 
 
