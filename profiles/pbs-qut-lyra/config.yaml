@@ -16,10 +16,11 @@ show-failed-logs: true # This one requires additional configuration beyond the s
 jobname: "ac2_{name}_{jobid}.sh" # Super helpful because it shows the job in qstat
 
 
-# ---- Conda/Mamba ----
+# ---- Conda/Mamba/Apptainer ----
 use-conda: true
 conda-frontend: 'mamba' # Make sure that you install mamba in the environment where you're calling snakemake. Muuuuch faster than conda.
-#conda-prefix: "conda_base/" # Much better to use the $SNAKEMAKE_CONDA_PREFIX instead, as all workflows can then use the same envs.
+#use-singularity: true
+
 
 
 # ---- QUT CMR Lyra specifics ----
