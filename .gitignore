@@ -1,11 +1,7 @@
 .DS_Store
 output/
-trash/
 .snakemake/
-conda_base/
 logs/
 ._*
-data_mirror*
-data_mirror/
 trash*/
-split_peptide*
+
