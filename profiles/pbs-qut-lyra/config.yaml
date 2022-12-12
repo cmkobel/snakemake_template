@@ -1,32 +1,32 @@
-local-cores: 16 # front end / head node cores
-cores: 2048 # cluster cores
-jobs: 1000 # max parallel jobs
+# This profile can be used with a snakemake workflow. Just put this config.yaml-file in a directory called whatever/ and call your snakemake worflow with 
+# snakemake --profile whatever/
+
+# ---- Front end stuff ----
+local-cores: 16 # front end / head node cores. Most often computing the DAG will be limited by disk-IO anyway.
+
+
+# ---- Back end stuff ----
+cores: 2048 # cluster cores # Fair play.
+jobs: 128 # max parallel jobs. Good idea to limit this for dangerous situations.
 keep-going: true 
-#rerun-incomplete: true
 latency-wait: 120
-keep-incomplete: true # Should be true for debugging rules.
-keep-incomplete: false # Should be true for debugging rules.
+keep-incomplete: false # Set this to true when you develop/debug workflows.
 
-
-# This one could be cool to have working 
-show-failed-logs: true
+show-failed-logs: true # This one requires additional configuration beyond the scope of this configuration file.
 jobname: "ac2_{name}_{jobid}.sh" # Super helpful because it shows the job in qstat
 
-# ---- Conda/Mamba ----
+
+# ---- Conda/Mamba/Apptainer ----
 use-conda: true
-conda-frontend: 'mamba'
-#conda-prefix: "conda_base/" # Much better to use the $SNAKEMAKE_CONDA_PREFIX instead, as all workflows can then use the same envs.
+conda-frontend: 'mamba' # Make sure that you install mamba in the environment where you're calling snakemake. Muuuuch faster than conda.
+#use-singularity: true
 
 
 
 # ---- QUT CMR Lyra specifics ----
 
-cluster-cancel: "qdel"
-
-
-
 cluster:
-  mkdir -p logs/old/ && 
+  mkdir -p logs/ && 
   qsub 
     -V 
     -A kobel 
@@ -35,17 +35,14 @@ cluster:
     -e logs/{jobid}-{rule}.err.log 
     -o logs/{jobid}-{rule}.out.log
     -l select=1:ncpus={threads}:mem={resources.mem_mb}mb,walltime={resources.runtime} 
-
-
-    
-
-
+ 
+cluster-cancel: "qdel"
 
 default-resources:
   - mem_mb=1024
-  #- disk_mb=1024 # genomedk doesn't care 
-  - runtime='12:00:00'
-  - tmpdir='$SCRATCH'
-  #- partition=normal # genomedk doesn't care too much about partitions (https://genome.au.dk/docs/interacting-with-the-queue/#why-is-the-partition-i-chose-being-ignored)
+  - runtime='6:00:00'
+  #- tmpdir='$SCRATCH' # Not always necessary.
+  #- disk_mb=1024 # Not always necessary.
+  #- partition=normal # Not always necessary.
   
   
