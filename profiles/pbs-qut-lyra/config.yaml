@@ -7,7 +7,7 @@ local-cores: 16 # front end / head node cores. Most often computing the DAG will
 
 # ---- Back end stuff ----
 cores: 2048 # cluster cores # Fair play.
-jobs: 1000 # max parallel jobs # In the event of chaotic recursive spawning of random jobs.
+jobs: 128 # max parallel jobs. Good idea to limit this for dangerous situations.
 keep-going: true 
 latency-wait: 120
 keep-incomplete: false # Set this to true when you develop/debug workflows.
