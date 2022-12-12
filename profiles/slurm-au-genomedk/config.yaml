@@ -4,18 +4,17 @@ cores: 2048 # cluster cores
 jobs: 1000 # max parallel jobs
 keep-going: true 
 #rerun-incomplete: true
-latency-wait: 120
+latency-wait: 120 # Some file systems can be slow.
 keep-incomplete: true # Should be true for debugging rules.
 
 # This one could be cool to have working 
 show-failed-logs: true
 
 
-# ---- Conda/Mamba ----
+# ---- Conda/Mamba/Apptainer ----
 use-conda: true
-conda-frontend: 'mamba'
-#conda-prefix: "conda_base/" # Much better to use the $SNAKEMAKE_CONDA_PREFIX instead, as all workflows can then use the same envs.
-
+conda-frontend: 'mamba' # Make sure that you install mamba in the environment where you're calling snakemake. Muuuuch faster than conda.
+#use-singularity: true
 
 
 # ---- Sigma2 Saga SLURM specifics ----
