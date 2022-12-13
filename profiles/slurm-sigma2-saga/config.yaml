@@ -29,7 +29,7 @@ conda-frontend: 'mamba' # Make sure that you install mamba in the environment wh
 cluster-cancel: "scancel"
 
 cluster:
-  mkdir -p logs/old/ &&
+  mkdir -p logs/ &&
   sbatch
     --parsable
     --cpus-per-task={threads}
