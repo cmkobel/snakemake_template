@@ -9,9 +9,11 @@ local-cores: 16 # front end / head node cores. Most often computing the DAG will
 cores: 2048 # cluster cores # Fair play.
 jobs: 128 # max parallel jobs. Good idea to limit this for dangerous situations.
 keep-going: true 
+
 latency-wait: 120
 keep-incomplete: false # Set this to true when you develop/debug workflows.
 
+# This one could be cool to have working 
 show-failed-logs: true # This one requires additional configuration beyond the scope of this configuration file.
 jobname: "ac2_{name}_{jobid}.sh" # Super helpful because it shows the job in qstat
 
@@ -22,8 +24,9 @@ conda-frontend: 'mamba' # Make sure that you install mamba in the environment wh
 #use-singularity: true
 
 
-
 # ---- QUT CMR Lyra specifics ----
+
+cluster-cancel: "qdel"
 
 cluster:
   mkdir -p logs/ && 
@@ -35,8 +38,7 @@ cluster:
     -e logs/{jobid}-{rule}.err.log 
     -o logs/{jobid}-{rule}.out.log
     -l select=1:ncpus={threads}:mem={resources.mem_mb}mb,walltime={resources.runtime} 
- 
-cluster-cancel: "qdel"
+
 
 default-resources:
   - mem_mb=1024

@@ -1,14 +1,21 @@
+# This profile can be used with a snakemake workflow. Just put this config.yaml-file in a directory called whatever/ and call your snakemake worflow with 
+# snakemake --profile whatever/
 
-local-cores: 8 # front end / head node cores
+# ---- Front end stuff ----
+local-cores: 16 # front end / head node cores. Most often computing the DAG will be limited by disk-IO anyway.
+
+
+# ---- Back end stuff ----
 cores: 2048 # cluster cores
 jobs: 128 # max parallel jobs. Good idea to limit this for dangerous situations.
 keep-going: true 
 #rerun-incomplete: true
 latency-wait: 120 # Some file systems can be slow.
-keep-incomplete: true
+keep-incomplete: false
 
 # This one could be cool to have working 
 show-failed-logs: true
+
 
 
 # ---- Conda/Mamba/Apptainer ----
@@ -17,14 +24,11 @@ conda-frontend: 'mamba' # Make sure that you install mamba in the environment wh
 #use-singularity: true
 
 
-
 # ---- Sigma2 Saga SLURM specifics ----
 
 cluster-cancel: "scancel"
 
 cluster:
-  echo "{resources.mem_mb}" &&
-  echo "{resources.partition}" &&
   mkdir -p logs/old/ &&
   sbatch
     --parsable
