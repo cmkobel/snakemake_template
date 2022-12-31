@@ -1,4 +1,9 @@
-# snakemake --profile profiles/local
+# May the data passing through this pipeline
+# somehow help to bring just a little more peace 
+# in this troubled world.
+
+
+#  snakemake --profile profiles/local
 
 
 
