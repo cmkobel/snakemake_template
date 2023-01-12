@@ -9,5 +9,6 @@ dependencies:
   - git # Not strictly necessary, but nice to have.
 
 
-# conda env create -f environment.yaml
 
+# Create an environment from this file by calling
+# conda env create -f environment.yaml
