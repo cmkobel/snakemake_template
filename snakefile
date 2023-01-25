@@ -2,6 +2,10 @@
 # somehow help to bring just a little more peace 
 # in this troubled world.
 
+print("""Description:
+	Hey there! This pipeline doesn't have a description.
+""")
+	
 
 #  snakemake --profile profiles/local
 
