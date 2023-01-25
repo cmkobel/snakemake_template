@@ -3,7 +3,7 @@
 # in this troubled world.
 
 print("""Description:
-	Hey there! This pipeline doesn't have a description.
+	Hey there. This pipeline doesn't have a description.
 """)
 	
 
