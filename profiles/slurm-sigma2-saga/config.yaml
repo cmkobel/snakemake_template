@@ -12,6 +12,7 @@ keep-going: true
 #rerun-incomplete: true
 latency-wait: 120 # Some file systems can be slow.
 keep-incomplete: false
+rerun-triggers: "mtime"
 
 # This one could be cool to have working 
 show-failed-logs: true
