@@ -9,9 +9,11 @@ local-cores: 16 # front end / head node cores. Most often computing the DAG will
 cores: 2048 # cluster cores # Fair play.
 jobs: 128 # max parallel jobs. Good idea to limit this for dangerous situations.
 keep-going: true 
+latency-wait: 120 # Some file systems can be slow.
 
-latency-wait: 120
-keep-incomplete: false # Set this to true when you develop/debug workflows.
+# Flip these true for debugging:
+keep-incomplete: false # true for development/debugging
+rerun-triggers: "mtime" 
 
 # This one could be cool to have working 
 show-failed-logs: true # This one requires additional configuration beyond the scope of this configuration file.
