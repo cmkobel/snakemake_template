@@ -8,7 +8,7 @@ cores: 64 # not a good guy
 keep-going: true 
 show-failed-logs: true
 
-# Flip these true for debugging:
+# Flip these for debugging:
 keep-incomplete: false # true for development/debugging
 rerun-triggers: "mtime" 
 

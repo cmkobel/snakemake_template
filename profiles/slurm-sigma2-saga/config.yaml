@@ -11,7 +11,7 @@ jobs: 128 # max parallel jobs. Good idea to limit this for dangerous situations.
 keep-going: true 
 latency-wait: 120 # Some file systems can be slow.
 
-# Flip these true for debugging:
+# Flip these for debugging:
 keep-incomplete: false # true for development/debugging
 rerun-triggers: "mtime" 
 
