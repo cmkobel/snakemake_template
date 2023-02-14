@@ -49,7 +49,7 @@ cluster:
 default-resources:
   - mem_mb=1024
   #- disk_mb=1024 # genomedk doesn't care 
-  - runtime='06:00:00'
+  - runtime='12:00:00'
   - tmpdir='$SCRATCH'
   #- partition=normal # genomedk doesn't care too much about partitions (https://genome.au.dk/docs/interacting-with-the-queue/#why-is-the-partition-i-chose-being-ignored)
   

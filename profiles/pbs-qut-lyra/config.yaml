@@ -44,7 +44,7 @@ cluster:
 
 default-resources:
   - mem_mb=1024
-  - runtime='6:00:00'
+  - runtime='12:00:00'
   #- tmpdir='$SCRATCH' # Not always necessary.
   #- disk_mb=1024 # Not always necessary.
   #- partition=normal # Not always necessary.
