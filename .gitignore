@@ -4,4 +4,5 @@ output/
 logs/
 ._*
 trash*/
-
+.onstart.txt
+.onsuccess.txt
