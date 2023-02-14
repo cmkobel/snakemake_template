@@ -27,3 +27,17 @@ rule generator:
 		touch {output}
 		
 	"""
+
+
+
+
+
+
+onstart: 
+    shell("mkdir -p logs/old/; mv logs/*.log logs/old/ 2> /dev/null") # Put old logs aside
+    shell("find output/ > .onstart.txt 2> /dev/null || exit 0")
+
+onsuccess:
+    print("onsuccess: The following files were created:")
+    shell("find output/ > .onsuccess.txt && diff .onstart.txt .onsuccess.txt || exit 0")
+
