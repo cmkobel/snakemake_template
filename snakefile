@@ -1,3 +1,6 @@
+__author__ = "Carl Mathias Kobel"
+__source__ = "https://github.com/cmkobel/snakemake_template"
+
 # May the data passing through this pipeline
 # somehow help to bring just a little more peace 
 # in this troubled world.
