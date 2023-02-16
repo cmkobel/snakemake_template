@@ -1,12 +1,10 @@
 __author__ = "Carl Mathias Kobel"
 __source__ = "https://github.com/cmkobel/snakemake_template"
 
-# May the data passing through this pipeline
-# somehow help to bring just a little more peace 
-# in this troubled world.
-
-print("""Description:
-	<Hey there. This pipeline doesn't have a description. Put a few words about what the aim is with this pipeline. Also, consider renaming the parent directory.>
+print("""Description
+    May the data passing through this pipeline
+    somehow help to bring just a little more peace
+    in this troubled world.
 """)
 	
 
