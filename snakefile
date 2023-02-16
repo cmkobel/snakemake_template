@@ -1,5 +1,5 @@
 __author__ = "Carl Mathias Kobel"
-__source__ = "https://github.com/cmkobel/snakemake_template"
+__maintainter__ = "https://github.com/cmkobel/snakemake_template"
 
 print("""Description
     May the data passing through this pipeline
