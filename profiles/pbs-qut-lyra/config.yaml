@@ -36,7 +36,7 @@ cluster:
     -V 
     -A kobel 
     -q microbiome 
-    -N {name}-{rule}
+    -N st-{rule}_{wildcards}
     -e logs/{jobid}-{rule}.err.log 
     -o logs/{jobid}-{rule}.out.log
     -l select=1:ncpus={threads}:mem={resources.mem_mb}mb,walltime={resources.runtime} 
