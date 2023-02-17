@@ -54,7 +54,8 @@ def log_handler(msg):
         except:
             pass
 
-
+    
+    # I can't come up with anything relevant to add from these messages. 
     # if msg["level"] == "progress":
     #     print("%%%", msg["done"], msg["total"])
     #     print(msg)
