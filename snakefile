@@ -6,29 +6,49 @@ print("""Description:
     somehow help to bring just a little more peace
     in this troubled world.
 """)
-	
+    
 
 #  snakemake --profile profiles/local
 
 
 
 rule all:
-	input: "path/to/output.txt"
+    input: "path/to/output.txt"
+    input: "path/to/failed_output.txt"
+    
 
 
 rule generator:
-	output: touch("path/to/output.txt")
-	conda: "conda_definitions/some_software.yaml"
-	# threads: 1
-	# resources: 
-	#	mem_mb = 1024,
- 	#	runtime = "12:00:00",
-	shell: """
-	
-		touch {output}
-		
-	"""
+    output: touch("path/to/output.txt")
+    # conda: "conda_definitions/some_software.yaml"
+    # threads: 1
+    # resources: 
+    #     mem_mb = 1024,
+    #     runtime = "720m",
+    shell: """
 
+        touch {output}
+        
+    """
+
+
+rule fail_tester:
+    output: touch("path/to/failed_output.txt")
+    #conda: "conda_definitions/some_software.yaml"
+    # threads: 1
+    # resources: 
+    #	mem_mb = 1024,
+    #	runtime = "12:00:00",
+    #log: "logging/generator.log"
+    resources:
+        runtime = "6m"
+    shell: """
+    
+        echo "errorr"
+        >2& echo "About to fail ..."
+        exit 1
+        
+    """
 
 
 

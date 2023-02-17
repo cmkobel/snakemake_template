@@ -15,9 +15,11 @@ latency-wait: 120 # Some file systems can be slow.
 keep-incomplete: false # true for development/debugging
 rerun-triggers: "mtime" 
 
-# This one could be cool to have working 
-show-failed-logs: true # This one requires additional configuration beyond the scope of this configuration file.
 
+# ---- Logging ----
+show-failed-logs: true # This one requires additional configuration beyond the scope of this configuration file.
+log-handler-script: "log_handler_script.py"
+    
 
 
 # ---- Conda/Mamba/Apptainer ----
@@ -41,6 +43,7 @@ cluster:
     --time={resources.runtime}
     --account=nn9864k
     --partition={resources.partition}
+    --qos={resources.qos}
     
 
 
@@ -48,9 +51,10 @@ cluster:
 default-resources:
   - mem_mb=1024
   #- disk_mb=1024 # saga doesn't care
-  - runtime='12:00:00'
+  - runtime='720m'
   - tmpdir='$SCRATCH'
   - partition=normal
+  - qos=devel
   
   
 
