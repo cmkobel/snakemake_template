@@ -32,6 +32,7 @@ rule generator:
     """
 
 
+# You can delete this if you're done testing the behaviour of log_handler_script.py
 rule fail_tester:
     output: touch("path/to/failed_output.txt")
     #conda: "conda_definitions/some_software.yaml"
@@ -39,13 +40,12 @@ rule fail_tester:
     # resources: 
     #	mem_mb = 1024,
     #	runtime = "12:00:00",
-    #log: "logging/generator.log"
     resources:
         runtime = "6m"
     shell: """
     
         echo "errorr"
-        >2& echo "About to fail ..."
+        >&2 echo "About to fail ..."
         exit 1
         
     """

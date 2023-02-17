@@ -15,7 +15,7 @@ import sys
 # Provide a custom script containing a function ‘def log_handler(msg):’. Snakemake will call this function for every logging output (given as a dictionary msg)allowing to e.g. send notifications in the form of e.g. slack messages or emails.
 
 
-n_lines = 10
+n_lines = 20
 
 
 def log_handler(msg):
@@ -32,7 +32,8 @@ def log_handler(msg):
             name = m.groupdict()['name']
             jobid = m.groupdict()['jobid']
             external = m.groupdict()['external'] # "external" is the external jobid
-            print("=== parsed", name, jobid, external, "===")
+            #print("=== ", msg) # debug
+            #print("=== parsed", name, jobid, external, "===")
         
             # print the last few lines of the associated log file
             stderr_file = glob.glob("logs/" + external + "-" + jobid + "-" + name + ".err.log")[0]
@@ -54,7 +55,7 @@ def log_handler(msg):
             pass
 
 
-    if msg["level"] == "progress":
-        print("%%%", msg["done"], msg["total"])
-        print(msg)
+    # if msg["level"] == "progress":
+    #     print("%%%", msg["done"], msg["total"])
+    #     print(msg)
 
