@@ -39,7 +39,7 @@ def log_handler(msg):
             stderr_file = glob.glob("logs/" + external + "-" + jobid + "-" + name + ".err.log")[0]
 
             #print("Printing the last " + str(n_lines) + "lines from " + stderr_file + " below:")
-            print("\033[91mDebug: Printing the last", str(n_lines), "lines from", stderr_file, "below:")
+            print("\033[91mDebug: Printing the last", str(n_lines), "lines from: ", stderr_file)
 
             # stderr_file = "logs/7641656-2-fail_tester.err.log"
             # TODO: Print only the last ~10 lines by first counting the number of lines.
