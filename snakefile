@@ -35,7 +35,7 @@ rule generator:
 
 
 onstart: 
-    shell("mkdir -p logs/old/; mv logs/*.log logs/old/ 2> /dev/null") # Put old logs aside
+    shell("mkdir -p logs/old/; mv logs/*.log logs/old/ 2> /dev/null || exit 0") # Put old logs aside
     shell("find output/ > .onstart.txt 2> /dev/null || exit 0")
 
 onsuccess:
