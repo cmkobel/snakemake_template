@@ -31,7 +31,6 @@ conda-frontend: 'mamba' # Make sure that you install mamba in the environment wh
 cluster-cancel: "qdel"
 
 cluster:
-  mkdir -p logs/ && 
   qsub 
     -V 
     -A kobel 
