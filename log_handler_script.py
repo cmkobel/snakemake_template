@@ -1,12 +1,21 @@
 #!/usr/bin/env python
 
+"""
+This script makes snakemake able to read out the last n_lines of a failed job stderr-log.
+"""
+
 import re
 import glob
 import sys
 
+
+# Documentation from snakemake:
+# https://snakemake.readthedocs.io/en/stable/executing/cli.html
 #--log-handler-script
 # Provide a custom script containing a function ‘def log_handler(msg):’. Snakemake will call this function for every logging output (given as a dictionary msg)allowing to e.g. send notifications in the form of e.g. slack messages or emails.
 
+
+n_lines = 10
 
 
 def log_handler(msg):
@@ -23,14 +32,13 @@ def log_handler(msg):
             name = m.groupdict()['name']
             jobid = m.groupdict()['jobid']
             external = m.groupdict()['external'] # "external" is the external jobid
-            n_lines = 10
             print("=== parsed", name, jobid, external, "===")
         
             # print the last few lines of the associated log file
             stderr_file = glob.glob("logs/" + external + "-" + jobid + "-" + name + ".err.log")[0]
 
             #print("Printing the last " + str(n_lines) + "lines from " + stderr_file + " below:")
-            print("Debug: Printing the last", str(n_lines), "lines from", stderr_file, "below:")
+            print("\033[91mDebug: Printing the last", str(n_lines), "lines from", stderr_file, "below:")
 
             # stderr_file = "logs/7641656-2-fail_tester.err.log"
             # TODO: Print only the last ~10 lines by first counting the number of lines.
