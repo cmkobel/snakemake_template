@@ -47,8 +47,6 @@ def log_handler(msg):
                 full = stderr_open.readlines()
                 len_full = len(full)
                 for i, line in enumerate(full[-n_lines:]):
-                    effective_line_number = i+len_full-n_lines+1
-                    #print("    stderr", i+len_full-n_lines+1, line, end ='')
                     print(f"    stderr {i+len_full-n_lines+1} |", line, end = '', file = sys.stderr)
 
         except:
