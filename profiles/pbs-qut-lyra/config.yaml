@@ -15,8 +15,10 @@ latency-wait: 120 # Some file systems can be slow.
 keep-incomplete: false # true for development/debugging
 rerun-triggers: "mtime" 
 
-# This one could be cool to have working 
+
+# ---- Logging ----
 show-failed-logs: true # This one requires additional configuration beyond the scope of this configuration file.
+log-handler-script: "scripts/log_handler_script.py"
 jobname: "j_{name}_{jobid}.sh" # Super helpful because it shows the job in qstat
 
 
