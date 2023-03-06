@@ -1,5 +1,8 @@
 #!/usr/bin/env python
 
+__author__ = "Carl Mathias Kobel"
+__maintainter__ = "https://github.com/cmkobel/snakemake_template"
+
 """
 This script makes snakemake able to read out the last n_lines of a failed job stderr-log.
 """
